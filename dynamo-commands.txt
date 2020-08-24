@@ -1,0 +1,10 @@
+aws dynamodb --endpoint-url http://localhost:8042 create-table \
+    --table-name News \
+    --attribute-definitions \
+        AttributeName=NewsID,AttributeType=S \
+        AttributeName=Date,AttributeType=S \
+    --key-schema \
+        AttributeName=NewsID,KeyType=HASH \
+        AttributeName=Date,KeyType=RANGE \
+--provisioned-throughput \
+        ReadCapacityUnits=10,WriteCapacityUnits=5
